@@ -49,8 +49,12 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->address }}</td>
                                 <td>
-                                    <a href="" class="btn btn-info sm" title="Edit Supplier"> <i class="fas fa-edit"></i></a>
-                                    <a href="" class="btn btn-danger sm" title="Delete Supplier"> <i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{ route('suppliers.edit', $item->id) }}" 
+                                        class="btn btn-info sm" 
+                                    title="Edit Supplier"> <i class="fas fa-edit"></i></a>
+                                    <a href="{{ route('suppliers.delete', $item->id) }}" 
+                                        class="btn btn-danger sm" id="delete"
+                                    title="Delete Supplier"> <i class="fas fa-trash-alt" ></i></a>
                                 </td>
                             </tr>
                             @endforeach

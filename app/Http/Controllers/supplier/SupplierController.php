@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\supplier;
 
+use App\Http\Controllers\Controller;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 
-class SuppliersController extends Controller
+class SupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -74,7 +75,8 @@ class SuppliersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $supplier = Supplier::findOrFail($id);
+        return view('backend.supplier.edit', compact('supplier'));
     }
 
     /**
@@ -84,9 +86,24 @@ class SuppliersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $supplier_id = $request->id;
+        Supplier::findOrFail($supplier_id)->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'address' => $request->address,
+            'updated_by' => Auth::user()->id,
+            'updated_at' => Carbon::now()
+        ]);
+
+        $notification = array(
+            'message' => 'Supplier updated successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('suppliers.index')->with($notification);
     }
 
     /**
@@ -97,6 +114,14 @@ class SuppliersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Supplier::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Supplier deleted successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->back()->with($notification);
+
     }
 }
