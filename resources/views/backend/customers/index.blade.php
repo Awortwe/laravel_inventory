@@ -20,7 +20,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <a href="" 
+                        <a href="{{ route('customers.create') }}" 
                         class="btn btn-dark btn-rounded waves-effect waves-light" 
                         style="float: right;">
                             Add Customer</a><br><br>

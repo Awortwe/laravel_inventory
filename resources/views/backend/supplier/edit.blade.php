@@ -101,7 +101,7 @@
                 $(element).addClass('is-invalid');
             },
             unhighlight : function(element, errorClass, validClass){
-                $(element).addClass('is-valid');
+                $(element).removeClass('is-valid');
             },
         });
     });

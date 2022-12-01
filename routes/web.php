@@ -45,6 +45,7 @@ Route::controller(SupplierController::class)->group(function(){
 
 Route::controller(CustomerController::class)->group(function(){
     Route::get('customers/index', 'index')->name('customers.index');
+    Route::get('customers/create', 'create')->name('customers.create');
 });
 
 Route::middleware('auth')->group(function () {
