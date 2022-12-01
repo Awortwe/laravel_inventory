@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <h4 class="card-title">Add Supplier</h4><hr>
+                        <h4 class="card-title">Update Supplier Information</h4><hr>
                      
                             
                         <form action="{{ route('suppliers.update') }}" method="post"  id="myForm">
