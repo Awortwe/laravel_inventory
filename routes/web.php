@@ -46,6 +46,10 @@ Route::controller(SupplierController::class)->group(function(){
 Route::controller(CustomerController::class)->group(function(){
     Route::get('customers/index', 'index')->name('customers.index');
     Route::get('customers/create', 'create')->name('customers.create');
+    Route::post('customers/store', 'store')->name('customers.store');
+    Route::get('cutomers/edit/{id}', 'edit')->name('customers.edit');
+    Route::post('customer/update', 'update')->name('customers.update');
+    Route::get('customers/delete/{id}', 'delete')->name('customers.delete');
 });
 
 Route::middleware('auth')->group(function () {

@@ -52,10 +52,10 @@
                                 <td>{{ $item->email }}</td>
                                 <td>{{ $item->address }}</td>
                                 <td>
-                                    <a href="" 
+                                    <a href="{{ route('customers.edit', $item->id) }}" 
                                         class="btn btn-info sm" 
                                     title="Edit Supplier"> <i class="fas fa-edit"></i></a>
-                                    <a href="" 
+                                    <a href="{{ route('customers.delete', $item->id) }}" 
                                         class="btn btn-danger sm" id="delete"
                                     title="Delete Supplier"> <i class="fas fa-trash-alt" ></i></a>
                                 </td>
