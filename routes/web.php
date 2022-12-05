@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\supplier\SupplierController;
+use App\Http\Controllers\UnitController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -50,6 +51,15 @@ Route::controller(CustomerController::class)->group(function(){
     Route::get('cutomers/edit/{id}', 'edit')->name('customers.edit');
     Route::post('customer/update', 'update')->name('customers.update');
     Route::get('customers/delete/{id}', 'delete')->name('customers.delete');
+});
+
+Route::controller(UnitController::class)->group(function(){
+    Route::get('units/index', 'index')->name('units.index');
+    Route::get('units/create', 'create')->name('units.create');
+    Route::post('units/store', 'store')->name('units.store');
+    Route::get('units/edit/{id}', 'edit')->name('units.edit');
+    Route::post('units/update', 'update')->name('units.update');
+    Route::get('units/delete/{id}', 'delete')->name('units.delete');
 });
 
 Route::middleware('auth')->group(function () {
