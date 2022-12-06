@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\supplier\SupplierController;
@@ -60,6 +61,15 @@ Route::controller(UnitController::class)->group(function(){
     Route::get('units/edit/{id}', 'edit')->name('units.edit');
     Route::post('units/update', 'update')->name('units.update');
     Route::get('units/delete/{id}', 'delete')->name('units.delete');
+});
+
+Route::controller(CategoryController::class)->group(function(){
+    Route::get('categories/index', 'index')->name('categories.index');
+    Route::get('categories/create', 'create')->name('categories.create');
+    Route::post('categories/store', 'store')->name('categories.store');
+    Route::get('categories/edit/{id}', 'edit')->name('categories.edit');
+    Route::post('categories/update', 'update')->name('categories.update');
+    Route::get('categories/delete/{id}', 'delete')->name('categories.delete');
 });
 
 Route::middleware('auth')->group(function () {
