@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\supplier\SupplierController;
 use App\Http\Controllers\UnitController;
@@ -70,6 +71,10 @@ Route::controller(CategoryController::class)->group(function(){
     Route::get('categories/edit/{id}', 'edit')->name('categories.edit');
     Route::post('categories/update', 'update')->name('categories.update');
     Route::get('categories/delete/{id}', 'delete')->name('categories.delete');
+});
+
+Route::controller(ProductController::class)->group(function(){
+    Route::get('products/index', 'index')->name('products.index');
 });
 
 Route::middleware('auth')->group(function () {
