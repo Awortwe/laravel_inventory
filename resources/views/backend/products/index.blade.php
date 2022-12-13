@@ -14,18 +14,18 @@
             </div>
         </div>
         <!-- end page title -->
-        
+
         <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
 
-                        <a href="{{ route('suppliers.create') }}" 
-                        class="btn btn-dark btn-rounded waves-effect waves-light" 
+                        <a href="{{ route('products.create') }}"
+                        class="btn btn-dark btn-rounded waves-effect waves-light"
                         style="float: right;">
                             Add Product</a><br><br>
                         <h4 class="card-title">All Products</h4>
-                       
+
 
                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
@@ -45,20 +45,20 @@
                             <tr>
                                 <td>{{ $key+1 }}</td>
                                 <td>{{ $item->name }}</td>
-                                <td>{{ $item->supplier_id }}</td>
-                                <td>{{ $item->unit_id }}</td>
-                                <td>{{ $item->category_id }}</td>
+                                <td>{{ $item['supplier']['name'] }}</td>
+                                <td>{{ $item['unit']['name'] }}</td>
+                                <td>{{ $item['category']['name'] }}</td>
                                 <td>
-                                    <a href="{{ route('suppliers.edit', $item->id) }}" 
-                                        class="btn btn-info sm" 
+                                    <a href="{{ route('suppliers.edit', $item->id) }}"
+                                        class="btn btn-info sm"
                                     title="Edit Supplier"> <i class="fas fa-edit"></i></a>
-                                    <a href="{{ route('suppliers.delete', $item->id) }}" 
+                                    <a href="{{ route('suppliers.delete', $item->id) }}"
                                         class="btn btn-danger sm" id="delete"
                                     title="Delete Supplier"> <i class="fas fa-trash-alt" ></i></a>
                                 </td>
                             </tr>
                             @endforeach
-                          
+
                             </tbody>
                         </table>
 
@@ -67,7 +67,7 @@
             </div> <!-- end col -->
         </div> <!-- end row -->
 
-        
+
     </div> <!-- container-fluid -->
 </div>
 @endsection
